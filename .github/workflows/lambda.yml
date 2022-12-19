@@ -20,8 +20,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       
-      - name: Build with Maven
-        run: mvn clean package
+      - name: Clean Maven
+        run: mvn clean
+      
+      - name: Package Maven
+        run: mvn -X package
       
       - name: Login to Amazon ECR
         id: login-ecr
