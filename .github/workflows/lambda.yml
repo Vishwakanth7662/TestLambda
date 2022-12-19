@@ -42,3 +42,12 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Install awscli
+        uses: unfor19/install-aws-cli-action@v1
+
+      - name: Update lambda function
+        run: aws lambda update-function-code --function-name TestLambda --image-uri 742905148875.dkr.ecr.us-east-1.amazonaws.com/lambda:Latest
+
+      - name: Update lambda function
+        run: aws lambda update-function-code --function-name AnotherTestLambda --image-uri 742905148875.dkr.ecr.us-east-1.amazonaws.com/lambda:Latest
