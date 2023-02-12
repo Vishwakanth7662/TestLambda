@@ -5,7 +5,7 @@ COPY target/classes ${LAMBDA_TASK_ROOT}
 COPY target/dependency/* ${LAMBDA_TASK_ROOT}/lib/
 
 # Install Datadog Lambda extension
-COPY --from=public.ecr.aws/datadog/lambda-extension:<TAG> /opt/. /opt/
+COPY --from=public.ecr.aws/datadog/lambda-extension:36 /opt/. /opt/
 
 # Install Datadog Java APM client
 RUN yum -y install tar wget gzip
