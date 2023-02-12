@@ -9,7 +9,7 @@ COPY --from=public.ecr.aws/datadog/lambda-extension:36 /opt/. /opt/
 
 # Install Datadog Java APM client
 RUN yum -y install tar wget gzip
-RUN wget -O /opt/java/lib/dd-java-agent.jar https://dtdg.co/latest-java-tracer
+RUN wget -O datadog.jar https://dtdg.co/latest-java-tracer
 
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
 CMD [ "com.test.lambda.TestLambdaFunction::handleRequest" ]
