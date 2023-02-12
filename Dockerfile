@@ -1,8 +1,8 @@
 FROM public.ecr.aws/lambda/java:11
 
 ENV AWS_LAMBDA_EXEC_WRAPPER=/opt/datadog_wrapper
-ENV DD_SITE=us5.datadoghq.com
-ENV DD_API_KEY=9d51ea64ec901b79865a5f540d795948
+ENV DD_SITE=datadoghq.com
+ENV DD_API_KEY=39d33b2de4e6499b0238cb191ddc05f9
 
 # Copy function code and runtime dependencies from Maven layout
 COPY target/classes ${LAMBDA_TASK_ROOT}
